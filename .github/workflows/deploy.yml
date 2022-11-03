@@ -15,8 +15,10 @@ jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
-      - name: echo
+      - name: echo string
         run: echo ${{ env.Deploy == 'false' }}
+      - name: echo bool
+        run: echo ${{ env.Deploy == false }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
