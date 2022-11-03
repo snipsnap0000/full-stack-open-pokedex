@@ -15,10 +15,6 @@ jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
-      - name: debug
-        env:
-          COMMITS: https://github.com/${{github.repository}}/commit/${{github.sha}}
-        run: echo "$COMMITS"
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -62,7 +58,7 @@ jobs:
         with:
           severity: error
           text: Build failed
-          description: commit ${{ github.event.head_commit.url }} broke the build
+          description: commit https://github.com/${{github.repository}}/commit/${{github.sha}} broke the build
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
