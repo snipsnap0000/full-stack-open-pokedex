@@ -2,7 +2,7 @@ name: Healthcheck
 
 on:
   schedule:
-    - cron:  '0/1 0/3 0 ? * * *'
+    - cron: '0/3 * * * *'
 
 steps:
   - name: Check the deployed service URL
